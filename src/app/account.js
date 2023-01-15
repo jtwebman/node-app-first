@@ -1,5 +1,5 @@
 /**
- * The user repository module
+ * The account application module
  * @module App/Account
  */
 

@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const { v4: uuidv4 } = require('uuid');
 /**
- * The user repository module
+ * The user application module
  * @module App/User
  */
 
