@@ -9,6 +9,11 @@
   "author": "JT Turner",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "^10.2.0"
+    "mocha": "10.2.0"
+  },
+  "dependencies": {
+    "bcrypt": "5.1.0",
+    "config": "3.3.8",
+    "uuid": "9.0.0"
   }
 }
