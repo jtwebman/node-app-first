@@ -1,8 +1,12 @@
 const bcrypt = require('bcrypt');
 const { v4: uuidv4 } = require('uuid');
+/**
+ * The user repository module
+ * @module App/User
+ */
 
 /**
- * @typedef {Object} User - creates a new type named 'User'
+ * @typedef {Object} module:App/User.UserRecord - A user record
  * @property {string} email - a users primary email
  * @property {string} passwordHash - a users password hash
  * @property {string=} verifyEmailToken - an optional token to verify email
@@ -11,13 +15,13 @@ const { v4: uuidv4 } = require('uuid');
 
 /**
  * Gets a new user by hashing their password and creating a verify email token
- * @param {Config} config - The system config
- * @param {Config} users - The system config
+ * @param {module:Config} config - The system config
+ * @param {module:Data/UserRepo} userRepo - The user repo
  * @param {string} email - The users primary email
  * @param {string} password - The users new password in the clear
- * @returns {User} The new user
+ * @returns {module:App/User.UserRecord} The new user
  */
-async function newUser(config, users, email, password) {
+async function newUser(config, userRepo, email, password) {
   const passwordHash = await bcrypt.hash(password, config.PASSWORD_HASH_SALT_ROUNDS);
   const newUser = {
     email,
@@ -25,10 +29,10 @@ async function newUser(config, users, email, password) {
     verifyEmailToken: uuidv4(),
     verifiedEmail: false
   };
-  return users.save(newUser);
+  return userRepo.save(newUser);
 }
 
-async function login(email, password) {
+async function login(userRepo, email, password) {
 
 }
 

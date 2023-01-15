@@ -1,17 +1,26 @@
 /**
- * @typedef {Object} Account - creates a new type named 'User'
- * @property {User} owner - the primary owner of the account
+ * The user repository module
+ * @module App/Account
+ */
+
+/**
+ * @typedef {Object} module:App/Account.AccountRecord - creates a new type named 'User'
+ * @property {module:App/User.UserRecord} owner - the primary owner of the account
  * @property {List[]} lists - all the current lists on the account
  */
 
 /**
  * Creates a new account with a owner
- * @param {User} owner - the primary owner of the account
- * @returns {Account} The new account
+ * @param {module:App/User.UserRecord} owner - the primary owner of the account
+ * @returns {module:App/Account.AccountRecord} The new account
  */
 function newAccount(owner) {
   return {
     owner,
     lists: []
   }
+}
+
+module.exports = {
+  newAccount,
 }
