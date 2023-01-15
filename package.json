@@ -1,0 +1,14 @@
+{
+  "name": "app-first",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app/index.js",
+  "scripts": {
+    "test": "mocha tests/*"
+  },
+  "author": "JT Turner",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  }
+}
